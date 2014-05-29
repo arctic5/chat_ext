@@ -24,7 +24,7 @@ global.mikuS = sprite_add(argument0+"/MikuS.png",9,0,0,16,16);
 
 //quotes from steve
 //variable to make it easy to add more quotes
-global.totalQuotes = 18
+global.totalQuotes = 19;
 global.quoteGen[0]=('75% of stair accidents happen on stairs!');
 global.quoteGen[1]=('How do you know a Black used your computer?');
 global.quoteGen[2]=("That's what.* -She");
@@ -44,6 +44,7 @@ global.quoteGen[15]=("z6 z6 z6 z6 z6 z6 z6 z6 z6 z6 z6")
 global.quoteGen[16]=("global.quoteGen[16]");
 global.quoteGen[17]=("FYI DORITOS ARE BETTER THAN SUNCHIPS");
 global.quoteGen[18]=("Alex stop being a spammy mofo");
+global.quoteGen[19]=("GUYS TYPE /SWAG");
 
 //Define console commands
 //other plugins may have created the map before the plugin is executed
@@ -117,16 +118,17 @@ global.logChat = ini_read_real("Plugins","chat_logging",1);
 
 //add some text to the window
 global.chatLog = ds_list_create();
-ds_list_add(global.chatLog,"OArctic's chat extended v1.2 - press T to show/hide,");
+ds_list_add(global.chatLog,"OArctic's chat extended v1.2.1 - press T to show/hide,");
+ds_list_add(global.chatLog,"OAnd now for something totally different");
 ds_list_add(global.chatLog,"O"+string(global.quoteGen[irandom(global.totalQuotes)]));
 ds_list_add(global.chatLog,"OY to chat and U to teamchat.");
 ds_list_add(global.chatLog,"OType '/help' for console commands.");
 
 global.chatTime = ds_list_create();
-ds_list_add(global.chatTime,current_time);
-ds_list_add(global.chatTime,current_time);
-ds_list_add(global.chatTime,current_time);
-ds_list_add(global.chatTime,current_time);
+repeat(4)
+{
+    ds_list_add(global.chatTime,current_time);
+}
 
 global.blockedCommands = ds_list_create();
 var i, tmp;
@@ -740,7 +742,6 @@ object_event_add(global.chatWindow,ev_other,ev_user4,'
 object_event_add(global.chatWindow,ev_other,ev_user5,'
     randColor = make_color_rgb(irandom(255),irandom(255),irandom(255))
     switch(string_copy(message,1,1)) {
-        if (rainbow == 1)
         case "R":
             if (rainbow == 1)
                 draw_set_color(randColor);
