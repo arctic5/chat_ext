@@ -1,4 +1,5 @@
-chat_ext
+Warchat
 ========
 
-repository to track diffs, because my plugin folder is messy as fuck
+A variant of wareyas teamchat to serve as a lightweight global chat
+also because something like this doesn't need an extra repository
