@@ -125,10 +125,10 @@ ds_list_add(global.chatLog,"OY to chat and U to teamchat.");
 ds_list_add(global.chatLog,"OType '/help' for console commands.");
 
 global.chatTime = ds_list_create();
-repeat(4)
-{
-    ds_list_add(global.chatTime,current_time);
-}
+ds_list_add(global.chatTime,current_time);
+ds_list_add(global.chatTime,current_time);
+ds_list_add(global.chatTime,current_time);
+ds_list_add(global.chatTime,current_time);
 
 global.blockedCommands = ds_list_create();
 var i, tmp;
